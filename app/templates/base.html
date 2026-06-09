@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Face Attendance</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">Face Attendance / फेस अटेंडेंस</div>
+    <div class="links">
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('enroll_page') }}">Enroll</a>
+      <a href="{{ url_for('attendance_page') }}">Attendance</a>
+      <a href="{{ url_for('reports_page') }}">Reports</a>
+      {% if session.get('user') %}
+        <a href="{{ url_for('settings_page') }}">Settings</a>
+        <a href="{{ url_for('logout') }}">Logout ({{ session.get('user').username }})</a>
+      {% else %}
+        <a href="{{ url_for('login_page') }}">Login</a>
+      {% endif %}
+    </div>
+  </nav>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+  <script src="{{ url_for('static', filename='js/webcam.js') }}"></script>
+</body>
+</html>

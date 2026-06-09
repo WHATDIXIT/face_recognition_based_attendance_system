@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h2>Settings (Admin) / सेटिंग्स (एडमिन)</h2>
+  <form method="post">
+    <label>Tolerance (face distance) <input name="tolerance" value="{{ settings.tolerance }}" required></label>
+    <p>Lower tolerance = stricter matching (try 0.35–0.55).</p>
+    <div class="controls"><button type="submit">Save</button></div>
+  </form>
+  <p>Last updated: {{ settings.last_updated }}</p>
+</section>
+{% endblock %}
