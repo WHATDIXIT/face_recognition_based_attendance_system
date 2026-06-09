@@ -1,97 +1,72 @@
 # Face Recognition Based Attendance System
 
-Python based Face Recognition Attendance System for automatic attendance marking through facial recognition.
+A face recognition based attendance system built with Python which automatically takes attendance through facial recognition technique.
 
 ## 🚀 Features
 
-* Face Detection by OpenCV
-* Face Recognition by Trained Dataset
-* Automatic Attendance Marking
-* Attendance Storage & Management
-* Intuitive User Interface
-* Streamlit Based Interface
-* Real Time Face Recognition
+* Detecting face through OpenCV
+* Recognizing face with the help of dataset
+* Automatically taking attendance
+* Storing attendance in CSV file
+* Easy-to-use Interface
 
-## 📁 Folder Structure
+## 📁 Project Structure
 
 ```text
-face_recognition_based_attendance_system/
+face_attendance/
 │
-├── app.py
-├── attendance.py
-├── database.py
-├── register_student.py
-├── face_encoder.py
-├── utils.py
-├── run_webcam.py
-├── seed_demo_data.py
+├── app/
+├── attendance/
+├── data/
+├── scripts/
+├── tests/
 ├── requirements.txt
-│
-├── dataset/
-├── encodings/
-├── reports/
-├── database/
-│
 └── README.md
 ```
 
-## 🛠️ Tech Stack
+## 🛠️ Tools Used
 
 * Python
 * OpenCV
 * NumPy
-* Pandas
-* Streamlit
-* SQLite
-* Face Recognition Library
+* Face Recognition library
 
-## ⚙️ Setup Instructions
+## ⚙️ Setup
 
-### Clone Repository
+### 1. Clone the GitHub repository
 
 ```bash
 git clone https://github.com/WHATDIXIT/face_recognition_based_attendance_system.git
 ```
 
-### Change Working Directory
+### 2. Change directory to project
 
 ```bash
 cd face_recognition_based_attendance_system
 ```
 
-### Install Requirements
+### 3. Install required modules
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## ▶️ Running the Code
+## ▶️ To Run
 
-```bash
-streamlit run app.py
-```
+Run the program according to project requirements.
 
-Project would then open at
+## 📌 Potential Enhancements
 
-```text
-http://localhost:8501
-```
+* GUI enhancements
+* Integration with database
+* Hosting on cloud platform
 
-## 📌 Future Enhancements
-
-* Cloud Deployment
-* Mobile App
-* AI Powered Analytics
-* Multi Camera Support
-* Email Notification Services
-* More Security Features
-
-## 🔗 Project Repository
-
-https://github.com/WHATDIXIT/face_recognition_based_attendance_system
-
-## 👨‍💻 Developer
+## 👨‍💻 About Author
 
 ### Utkarsh Dixit
 
-B.Tech - Artificial
+GitHub Profile:
+https://github.com/WHATDIXIT
+
+Project Repository:
+https://github.com/WHATDIXIT/face_recognition_based_attendance_system
