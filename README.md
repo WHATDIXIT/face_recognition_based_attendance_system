@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🎓 Smart Attendance System using Face Recognition
 
 > **B.Tech AI/ML Final Year Project**  
@@ -303,3 +304,6 @@ B.Tech – Artificial Intelligence & Machine Learning
 ## 📄 License
 
 MIT License — free to use, modify and distribute with attribution.
+=======
+# face_recognition_based_attendance_system
+>>>>>>> a6244196971055b20155288909d2fb159f5da75c

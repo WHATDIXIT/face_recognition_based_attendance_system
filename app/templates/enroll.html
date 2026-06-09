@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h2>Enroll Student</h2>
+  <form id="enroll-form">
+    <div class="grid">
+      <label>Name <input type="text" name="name" required></label>
+      <label>Roll No. <input type="text" name="roll" required></label>
+      <label>Class/Section <input type="text" name="class_section" required></label>
+    </div>
+    <p>Capture 5–10 samples for robust face encoding.</p>
+    <div class="controls">
+      <button type="button" id="startCam">Start Camera</button>
+      <button type="button" id="capture">Capture Sample</button>
+      <button type="submit">Save Enrollment</button>
+    </div>
+  </form>
+  <video id="video" autoplay playsinline></video>
+  <canvas id="canvas" style="display:none;"></canvas>
+  <div id="samples"></div>
+  <div id="msg"></div>
+</section>
+
+<script>
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const samples = document.getElementById('samples');
+const msg = document.getElementById('msg');
+let stream = null;
+let blobs = [];
+
+document.getElementById('startCam').onclick = async () => {
+  stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+  video.srcObject = stream;
+};
+
+document.getElementById('capture').onclick = () => {
+  if (!stream) return;
+  const w = 480, h = 360;
+  canvas.width = w; canvas.height = h;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(video, 0, 0, w, h);
+  canvas.toBlob((blob) => {
+    blobs.push(blob);
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(blob);
+    img.className = 'thumb';
+    samples.appendChild(img);
+  }, 'image/jpeg', 0.9);
+};
+
+document.getElementById('enroll-form').onsubmit = async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const fd = new FormData(form);
+  if (blobs.length < 3) {
+    msg.textContent = "Please capture at least 3 samples.";
+    return;
+  }
+  blobs.forEach((b) => fd.append('images', b, 'sample.jpg'));
+  const res = await fetch('/api/enroll', { method: 'POST', body: fd });
+  const data = await res.json();
+  if (data.ok) {
+    msg.textContent = "Enrolled! Student ID: " + data.student_id;
+    blobs = [];
+    samples.innerHTML = '';
+    form.reset();
+  } else {
+    msg.textContent = "Error: " + (data.error || 'unknown');
+  }
+};
+</script>
+{% endblock %}

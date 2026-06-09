@@ -1,0 +1,16 @@
+{
+  "CSE-A": [
+    "DBMS",
+    "OS",
+    "TOC"
+  ],
+  "CSE-B": [
+    "AI",
+    "ML",
+    "DS"
+  ],
+  "Common": [
+    "Workshop",
+    "Seminar"
+  ]
+}

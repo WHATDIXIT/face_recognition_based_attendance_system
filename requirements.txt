@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 streamlit==1.32.0
 opencv-python-headless==4.9.0.80
 face-recognition==1.3.0
@@ -9,3 +10,12 @@ plotly==5.20.0
 scikit-learn==1.4.1.post1
 dlib==19.24.4
 imutils==0.5.4
+=======
+flask==3.0.3
+opencv-python>=4.8.0
+numpy>=1.24
+pandas>=2.0
+face-recognition>=1.3
+flask-login==0.6.3
+dlib_bin==19.24.6
+>>>>>>> a6244196971055b20155288909d2fb159f5da75c
